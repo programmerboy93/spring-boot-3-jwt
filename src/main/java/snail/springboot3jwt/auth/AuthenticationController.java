@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.management.relation.RoleNotFoundException;
+
 @RestController
 @RequestMapping("/apu/v1/auth")
 @RequiredArgsConstructor
@@ -13,7 +15,7 @@ public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
 
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) throws RoleNotFoundException {
         return ResponseEntity.ok(authenticationService.register(request));
     }
 
