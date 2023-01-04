@@ -5,6 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import snail.springboot3jwt.auth.payload.request.AuthenticationRequest;
+import snail.springboot3jwt.auth.payload.response.AuthenticationResponse;
+import snail.springboot3jwt.auth.payload.request.RegisterRequest;
 
 import javax.management.relation.RoleNotFoundException;
 

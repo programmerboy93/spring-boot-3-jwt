@@ -1,4 +1,4 @@
-package snail.springboot3jwt.auth;
+package snail.springboot3jwt.auth.payload.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
