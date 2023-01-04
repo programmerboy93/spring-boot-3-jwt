@@ -1,9 +1,9 @@
 package snail.springboot3jwt.auth.payload.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.*;
+import snail.springboot3jwt.auth.annotation.ValidPassword;
 
 @Data
 @Builder
@@ -11,12 +11,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RegisterRequest {
 
+    @NonNull
+    @NotEmpty
     private String firstname;
 
+    @NonNull
+    @NotEmpty
     private String lastname;
 
+    @NonNull
+    @NotEmpty
+    @Email
     private String email;
 
+    @NonNull
+    @NotEmpty
+    @ValidPassword
     private String password;
 
 }

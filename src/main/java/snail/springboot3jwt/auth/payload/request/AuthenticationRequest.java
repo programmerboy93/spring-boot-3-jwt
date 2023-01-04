@@ -1,15 +1,19 @@
 package snail.springboot3jwt.auth.payload.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.*;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthenticationRequest {
+
+    @NonNull
+    @NotEmpty
     private String email;
+
+    @NonNull
+    @NotEmpty
     private String password;
 }
