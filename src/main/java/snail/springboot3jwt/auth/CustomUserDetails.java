@@ -1,5 +1,6 @@
 package snail.springboot3jwt.auth;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,9 +9,10 @@ import snail.springboot3jwt.user.User;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails {
 
-    private User user;
+    private final User user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
