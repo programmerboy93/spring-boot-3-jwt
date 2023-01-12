@@ -1,5 +1,13 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
+#    url: jdbc:h2:./testDataBase;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;mode=MYSQL;NON_KEYWORDS=VALUE
+    url: jdbc:h2:mem;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;mode=MYSQL;NON_KEYWORDS=VALUE
     username: sa
-    password: password
+    password: sa
+
+  h2.console:
+    enabled: true
+    path: '/console'
+
+
+
