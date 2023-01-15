@@ -29,8 +29,5 @@ public class Actor extends BaseEntity {
     private String cityOfBirth;
 
     @ManyToMany(mappedBy = "actors", fetch = EAGER)
-    @JoinTable(name = "films_actors",
-            joinColumns = {@JoinColumn(name = "actor_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "film_id", nullable = false)})
     private Set<Film> films = new HashSet<>();
 }
