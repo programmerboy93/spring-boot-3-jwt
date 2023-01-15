@@ -13,7 +13,7 @@ import static jakarta.persistence.FetchType.EAGER;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name = "actors")
 public class Actor extends BaseEntity {
 
     private String firstname;
