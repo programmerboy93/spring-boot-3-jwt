@@ -1,6 +1,9 @@
 package snail.springboot3jwt.film;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -21,6 +24,7 @@ public class Director extends BaseEntity{
 
     private String lastname;
 
-    @ManyToOne
+    @OneToMany
+    @JoinColumn(name = "director_id")
     private Set<Film> films =  new HashSet<>();
 }

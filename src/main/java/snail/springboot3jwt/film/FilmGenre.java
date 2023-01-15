@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 import java.util.HashSet;
 import java.util.Set;
 
+import static jakarta.persistence.FetchType.EAGER;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
@@ -21,6 +23,6 @@ public class FilmGenre extends BaseEntity {
 
     private String filmGenre;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "filmGenres", fetch = EAGER)
     private Set<Film> films = new HashSet<>();
 }
