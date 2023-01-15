@@ -2,6 +2,8 @@ package snail.springboot3jwt.film;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
@@ -9,8 +11,11 @@ import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
+@Getter
 @Entity
 @Table(name = "films")
 public class Film extends BaseEntity {
@@ -29,7 +34,7 @@ public class Film extends BaseEntity {
     @ManyToMany(mappedBy = "filmGenres")
     @JoinTable(name = "films_film_genres",
             joinColumns = @JoinColumn(name = "film_id", nullable = false),
-            inverseJoinColumns@JoinColumn(name = "film_genres_id", nullable = false)
+            inverseJoinColumns = @JoinColumn(name = "film_genres_id", nullable = false)
     )
     private Set<FilmGenre> filmGenres = new HashSet<>();
 

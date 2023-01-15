@@ -2,6 +2,8 @@ package snail.springboot3jwt.film;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
@@ -12,6 +14,8 @@ import static jakarta.persistence.FetchType.EAGER;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
+@Getter
 @Entity
 @Table(name = "actors")
 public class Actor extends BaseEntity {
