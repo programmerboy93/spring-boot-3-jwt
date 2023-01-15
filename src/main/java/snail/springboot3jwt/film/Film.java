@@ -11,6 +11,8 @@ import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import static jakarta.persistence.FetchType.EAGER;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,28 +26,28 @@ public class Film extends BaseEntity {
 
     private LocalDate datePublished;
 
-    @ManyToMany(mappedBy = "films")
+    @ManyToMany(mappedBy = "films", fetch = EAGER)
     @JoinTable(name = "roles_films",
             joinColumns = @JoinColumn(name = "film_id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "actor_id", nullable = false)
     )
     private Set<Film> actors = new HashSet<>();
 
-    @ManyToMany(mappedBy = "filmGenres")
+    @ManyToMany(mappedBy = "filmGenres", fetch = EAGER)
     @JoinTable(name = "films_film_genres",
             joinColumns = @JoinColumn(name = "film_id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "film_genres_id", nullable = false)
     )
     private Set<FilmGenre> filmGenres = new HashSet<>();
 
-    @ManyToMany(mappedBy = "country")
+    @ManyToMany(mappedBy = "country", fetch = EAGER)
     @JoinTable(name = "films_countries",
             joinColumns = @JoinColumn(name = "film_id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "country_id", nullable = false)
     )
     private Country country;
 
-    @OneToMany(mappedBy = "films")
+    @OneToMany(mappedBy = "films", fetch = EAGER)
     @JoinTable(name = "films_director",
             joinColumns = @JoinColumn(name = "film_id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "director_id", nullable = false)
